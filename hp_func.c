@@ -2,21 +2,29 @@
 /**
  * print_number - Print number.
  * @n: numsto print
+ * @c: count
  */
-void print_number(int n)
+void print_number(int n, int *c)
 {
-	unsigned int num;
+	int div, dig;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		num = -n;
+		(*c)++;
+		n = -n;
 	}
-	else
+
+	div = 1;
+	while (n / div > 9)
+		div *= 10;
+
+	while (div != 0)
 	{
-		num = n;
+		dig = n / div;
+		putchar(dig + '0');
+		(*c)++;
+		n %= div;
+		div /= 10;
 	}
-	if (num / 10 > 0)
-		print_number(num / 10);
-	_putchar((num % 10) + '0');
 }
