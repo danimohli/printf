@@ -5,7 +5,9 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+void print_str(const char *str, int *count);
 int _printf(const char *format, ...);
-void print_number(int n);
+void print_char(char ch, int *count);
+void print_number(int num, int *count);
 
 #endif
