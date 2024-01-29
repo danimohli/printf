@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[x] == 'i' || format[x] == 'd')
 			{
-				print_number(va_arg(args, int), &count)
+				print_number(va_arg(args, int), &count);
 			}
 		}
 		else
