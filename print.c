@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int x = 0;
 	char *str, ch;
+	long int num;
 
 	va_start(args, format);
 	while (format[x] != '\0')
@@ -31,6 +32,12 @@ int _printf(const char *format, ...)
 			{
 				ch = (char)va_arg(args, int);
 				putchar(ch);
+			}
+			else if (format[x] == 'i' || format[x] == 'd')
+			{
+				num = va_arg(args, int);
+				print_number(num);
+
 			}
 		}
 		else
