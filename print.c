@@ -16,24 +16,26 @@ int _printf(const char *format, ...)
 
 		if (format[x] == '%')
 		{
-			if (format[x + 1] == 's')
+			++x;
+			if (format[x] == 's')
 			{
 				str = va_arg(args, char *);
 				puts(str);
 			}
-			else if (format[x + 1] == 'c')
+			else if (format[x] == 'c')
 			{
-				ch = va_arg(args, char);
+				ch = (char) va_arg(args, int);
 				putchar(ch);
 			}
-			else if (format[x + 1] == '%')
+			else if (format[x] == '%')
 			{
-				ch = va_arg(args, char);
+				ch = (char)va_arg(args, int);
 				putchar(ch);
 			}
 		}
 		else
 			putchar(format[x]);
+		x++;
 
 	}
 	va_end(args);
