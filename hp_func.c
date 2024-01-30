@@ -48,14 +48,12 @@ void print_number(int n, int *c)
  */
 void print_str(const char *str, int *count)
 {
-	char *st = str;
-
-	if (st == NULL)
-		st = "(null)";
-	while (*st)
+	if (str == NULL)
+		str = "(null)";
+	while (*str)
 	{
-		putchar(*st);
+		putchar(*str);
 		(*count)++;
-		st++;
+		str++;
 	}
 }
