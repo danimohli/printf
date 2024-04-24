@@ -11,34 +11,25 @@ void print_char(char ch, int *count)
 	(*count)++;
 }
 /**
- * print_number - Print number.
- * @n: numsto print
- * @c: count
- * Return: void
+ * print_number - function to print number
+ * @c: total element printed
+ * @n: number to print
  */
 void print_number(int n, int *c)
 {
-	int div, dig;
+	unsigned int m;
 
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		(*c)++;
-		n = -n;
+		n *= -1;
 	}
-
-	div = 1;
-	while (n / div > 9)
-		div *= 10;
-
-	while (div != 0)
-	{
-		dig = n / div;
-		putchar(dig + '0');
-		(*c)++;
-		n %= div;
-		div /= 10;
-	}
+	m = n;
+		if (m / 10 > 0)
+			print_number(m / 10, c);
+	_putchar(m % 10 + '0');
+	(*c)++;
 }
 /**
  * print_str - take string from printf
