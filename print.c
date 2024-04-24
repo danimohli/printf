@@ -24,6 +24,11 @@ int _printf(const char *format, ...)
 				print_char(va_arg(args, int), &count);
 			else if (format[x] == 'i' || format[x] == 'd')
 				print_number(va_arg(args, int), &count);
+			else if (format[x] == '%')
+			{
+				putchar('%');
+				count++;
+			}
 			else
 			{
 
