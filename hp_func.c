@@ -48,3 +48,17 @@ void print_str(const char *str, int *count)
 		str++;
 	}
 }
+/**
+ * binary - binary function
+ * @binary: decimal number to convert
+ * @c: count to binary
+ */
+void binary(int bi, int *count)
+{
+	int x = bi % 2;
+	if (bi == 0)
+		return;
+	binary(bi / 2, count);
+	putchar('0' + x);
+	(*count)++;
+}
