@@ -32,13 +32,12 @@ int _printf(const char *format, ...)
 			else
 			{
 
-				putchar(format[x]);
+				putchar(format[--x]);
 				count += 1;
 			}
 		}
 		else
 		{
-			--x;
 			putchar(format[x]);
 			count++;
 		}
