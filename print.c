@@ -9,8 +9,9 @@ int _printf(const char *format, ...)
 	va_list args;
 	int x = 0, count = 0;
 
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
+
 	va_start(args, format);
 	while (format[x] != '\0')
 	{
@@ -25,9 +26,9 @@ int _printf(const char *format, ...)
 				print_number(va_arg(args, int), &count);
 			else
 			{
-				--x;
+
 				putchar(format[x]);
-				count++;
+				count += 1;
 			}
 		}
 		else
