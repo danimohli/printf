@@ -9,6 +9,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int x = 0, count = 0;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	while (format[x] != '\0')
 	{
@@ -19,15 +21,11 @@ int _printf(const char *format, ...)
 				print_str(va_arg(args, char *), &count);
 			else if (format[x] == 'c')
 				print_char(va_arg(args, int), &count);
-			else if (format[x] == '%')
-			{
-				putchar('%');
-				count++;
-			}
 			else if (format[x] == 'i' || format[x] == 'd')
 				print_number(va_arg(args, int), &count);
 			else
 			{
+				--x;
 				putchar(format[x]);
 				count++;
 			}
