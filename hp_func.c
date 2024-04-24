@@ -21,14 +21,14 @@ void print_number(int n, int *c)
 
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		(*c)++;
 		n *= -1;
 	}
 	m = n;
 		if (m / 10 > 0)
 			print_number(m / 10, c);
-	_putchar(m % 10 + '0');
+	putchar(m % 10 + '0');
 	(*c)++;
 }
 /**
