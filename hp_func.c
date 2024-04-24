@@ -53,14 +53,29 @@ void print_str(const char *str, int *count)
  * @bi: decimal number to convert
  * @count: count to binary
  */
-void binary(unsigned int bi, int *count)
+void binary(unsigned long int n, int *count)
 {
-	unsigned int x = bi % 2;
+        unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
+        int lead_num = 1;
 
-	if (bi == 0)
-		return;
-
-	binary(bi / 2, count);
-	putchar('0' + x);
-	(*count)++;
+        while (mask > 0)
+        {
+                if ((n & mask) != 0)
+                {
+                        lead_num = 0;
+                        putchar('1');
+			(*count)++;
+                }
+                else if (!lead_num)
+		{
+                        putchar('0');
+			(*count)++;
+		}
+                mask >>= 1;
+        }
+        if (lead_num)
+	{
+                putchar('0');
+		(*count)++;
+	}
 }
