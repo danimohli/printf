@@ -10,6 +10,6 @@ void print_str(const char *str, int *count);
 int _printf(const char *format, ...);
 void print_char(char ch, int *count);
 void print_number(int num, int *count);
-void binary(int binary, int *c);
+void binary(unsigned int binary, int *c);
 
 #endif

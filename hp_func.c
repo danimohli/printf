@@ -50,14 +50,16 @@ void print_str(const char *str, int *count)
 }
 /**
  * binary - binary function
- * @binary: decimal number to convert
- * @c: count to binary
+ * @bi: decimal number to convert
+ * @count: count to binary
  */
-void binary(int bi, int *count)
+void binary(unsigned int bi, int *count)
 {
-	int x = bi % 2;
+	unsigned int x = bi % 2;
+
 	if (bi == 0)
 		return;
+
 	binary(bi / 2, count);
 	putchar('0' + x);
 	(*count)++;
