@@ -64,18 +64,15 @@ void binary(unsigned long int n, int *count)
                 {
                         lead_num = 0;
                         putchar('1');
-			(*count)++;
                 }
                 else if (!lead_num)
 		{
                         putchar('0');
-			(*count)++;
 		}
                 mask >>= 1;
         }
         if (lead_num)
 	{
                 putchar('0');
-		(*count)++;
 	}
 }
